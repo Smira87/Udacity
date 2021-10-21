@@ -1,4 +1,4 @@
-import main
+from Scripts import main
 import random
 import string
 
