@@ -32,19 +32,24 @@ class HashTable(object):
     def calculate_hash_value(self, string):
         """Helper function to calulate a
         hash value from a string."""
-        try:
+        if string.isupper():
+            try:
 
-            value = ord(string[0])*100 + ord(string[1])
+                value = ord(string[0])*100 + ord(string[1])
 
-        except IndexError:
+            except IndexError:
 
-            print("There must be at least two letters in an input string. Please correct your code")
+                print("There must be at least two letters in an input string. Please correct your code")
+                exit()
+
+            except TypeError:
+
+                print("The input data must be a string. Please correct your code")
+                exit()
+        else:
+
+            print('Input string should be uppercase');
             exit()
-
-        except TypeError:
-
-            print("The input data must be a string. Please correct your code")
-            exit()
-
         return value
 
+hash_table = HashTable()
