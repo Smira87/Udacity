@@ -1,4 +1,5 @@
 class HashTable(object):
+    """Class that generates a Hash Table"""
     def __init__(self):
         self.table = [None]*10000
 
@@ -18,6 +19,7 @@ class HashTable(object):
                 self.table[hv] = [string]
         else:
             print("This string is already present in a table")
+
     def lookup(self, string):
         """Return the hash value if the
         string is already in the table.
@@ -39,7 +41,8 @@ class HashTable(object):
 
             except IndexError:
 
-                print("There must be at least two letters in an input string. Please correct your code")
+                print(
+                    "There must be at least two letters in an input string. Please correct your code")
                 exit()
 
             except TypeError:
@@ -48,8 +51,9 @@ class HashTable(object):
                 exit()
         else:
 
-            print('Input string should be uppercase');
+            print('Input string should be uppercase')
             exit()
         return value
+
 
 hash_table = HashTable()

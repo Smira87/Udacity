@@ -1,0 +1,97 @@
+commit dd63811e983d7d277bb1fd83b1ca5ab0ddbd175e
+Author: User Ssp-root <ssp-root@releng13-50.local.com>
+Date:   Mon Oct 25 06:53:37 2021 -0700
+
+    Changes according to Geka
+
+diff --git a/Tests/test_main.py b/Tests/test_main.py
+deleted file mode 100644
+index 07b126a..0000000
+--- a/Tests/test_main.py
++++ /dev/null
+@@ -1,14 +0,0 @@
+-from Src import main
+-
+-"""Test function to test ALL main.py functions"""
+-def test_calculate_hash_value():
+-
+-    hash_table = main.HashTable()
+-
+-    hash_table.store('LALA')
+-
+-    assert hash_table.calculate_hash_value('LALA') == hash_table.lookup('LALA'), "Test failed"
+-
+-    assert hash_table.calculate_hash_value('LALAFA') == hash_table.calculate_hash_value('LAFAFA')
+-
+-    assert hash_table.calculate_hash_value('UDACITY') == 8568
+\ No newline at end of file
+diff --git a/conftest.py b/conftest.py
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/Src/main.py b/src/main.py
+similarity index 85%
+rename from Src/main.py
+rename to src/main.py
+index 7679656..a704dd7 100644
+--- a/Src/main.py
++++ b/src/main.py
+@@ -1,4 +1,5 @@
+ class HashTable(object):
++    """Class that generates a Hash Table"""
+     def __init__(self):
+         self.table = [None]*10000
+ 
+@@ -18,6 +19,7 @@ class HashTable(object):
+                 self.table[hv] = [string]
+         else:
+             print("This string is already present in a table")
++
+     def lookup(self, string):
+         """Return the hash value if the
+         string is already in the table.
+@@ -39,7 +41,8 @@ class HashTable(object):
+ 
+             except IndexError:
+ 
+-                print("There must be at least two letters in an input string. Please correct your code")
++                print(
++                    "There must be at least two letters in an input string. Please correct your code")
+                 exit()
+ 
+             except TypeError:
+@@ -48,8 +51,9 @@ class HashTable(object):
+                 exit()
+         else:
+ 
+-            print('Input string should be uppercase');
++            print('Input string should be uppercase')
+             exit()
+         return value
+ 
++
+ hash_table = HashTable()
+diff --git a/tests/test_main.py b/tests/test_main.py
+new file mode 100644
+index 0000000..9a222a9
+--- /dev/null
++++ b/tests/test_main.py
+@@ -0,0 +1,18 @@
++from src import main
++
++"""Test function to test ALL main.py functions"""
++
++
++def test_calculate_hash_value():
++
++    hash_table = main.HashTable()
++
++    hash_table.store('LALA')
++
++    assert hash_table.calculate_hash_value(
++        'LALA') == hash_table.lookup('LALA'), "Test failed"
++
++    assert hash_table.calculate_hash_value(
++        'LALAFA') == hash_table.calculate_hash_value('LAFAFA')
++
++    assert hash_table.calculate_hash_value('UDACITY') == 8568
+
