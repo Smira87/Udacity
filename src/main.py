@@ -1,5 +1,7 @@
-class HashTable(object):
+"""Module that generates a Hash Table"""
+class HashTable():
     """Class that generates a Hash Table"""
+
     def __init__(self):
         self.table = [None]*10000
 
@@ -42,7 +44,9 @@ class HashTable(object):
             except IndexError:
 
                 print(
-                    "There must be at least two letters in an input string. Please correct your code")
+                    "There must be at least two letters "
+                    "There must be at least two letters "
+                    "in an input string. Please correct your code")
                 exit()
 
             except TypeError:
