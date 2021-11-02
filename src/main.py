@@ -45,7 +45,6 @@ class HashTable():
 
                 print(
                     "There must be at least two letters "
-                    "There must be at least two letters "
                     "in an input string. Please correct your code")
                 exit()
 
