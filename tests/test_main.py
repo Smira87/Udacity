@@ -8,6 +8,7 @@ def test_calculate_hash_value():
 
     hash_table.store('LALA')
     hash_table.store('LALA')
+    hash_table.store('LALAFA')
 
     assert hash_table.calculate_hash_value(
         'LALA') == hash_table.lookup('LALA'), "Test failed"
