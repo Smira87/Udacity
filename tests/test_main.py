@@ -20,12 +20,16 @@ def test_calculate_hash_value():
 
 
     with pytest.raises(SystemExit) as e:
-        hash_table.calculate_hash_value('A')
+        hash_table.calculate_hash_value('a')
         assert e.type == SystemExit
 
+    with pytest.raises(SystemExit) as f:
+        hash_table.calculate_hash_value('A')
+        assert f.type == SystemExit
 
-
-
+    with pytest.raises(TypeError) as g:
+        hash_table.calculate_hash_value()
+        assert g.type == TypeError
 
 
 
