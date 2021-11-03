@@ -27,10 +27,8 @@ def test_calculate_hash_value():
         hash_table.calculate_hash_value('A')
         assert f.type == SystemExit
 
-    with pytest.raises(TypeError) as g:
-        hash_table.calculate_hash_value()
-        assert g.type == TypeError
-
-
+    with pytest.raises(AttributeError) as h:
+        hash_table.calculate_hash_value(1)
+        assert h.type == AttributeError
 
 
