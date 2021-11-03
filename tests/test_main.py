@@ -18,7 +18,6 @@ def test_calculate_hash_value():
 
     with pytest.raises(SystemExit) as e:
         hash_table.calculate_hash_value('A')
-        hash_table.calculate_hash_value(123)
         assert e.type == SystemExit
 
 
