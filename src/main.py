@@ -50,10 +50,6 @@ class HashTable():
                     "in an input string. Please correct your code")
                 sys.exit()
 
-            except TypeError:
-
-                print("The input data must be a string. Please correct your code")
-                sys.exit()
         else:
 
             print('Input string should be uppercase')

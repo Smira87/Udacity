@@ -18,6 +18,9 @@ def test_calculate_hash_value():
 
     assert hash_table.calculate_hash_value('UDACITY') == 8568
 
+    with pytest.raises(SystemExit) as e:
+        hash_table.calculate_hash_value('a')
+        assert e.type == SystemExit
 
     with pytest.raises(SystemExit) as e:
         hash_table.calculate_hash_value('a')
