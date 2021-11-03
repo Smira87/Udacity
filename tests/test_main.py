@@ -1,5 +1,6 @@
 """Test for ALL main.py functions"""
 from src import main
+import pytest
 
 def test_calculate_hash_value():
     """Test function to test ALL main.py functions"""
@@ -14,3 +15,16 @@ def test_calculate_hash_value():
         'LALAFA') == hash_table.calculate_hash_value('LAFAFA')
 
     assert hash_table.calculate_hash_value('UDACITY') == 8568
+
+    with pytest.raises(SystemExit) as e:
+        hash_table.calculate_hash_value('A')
+        hash_table.calculate_hash_value(123)
+        assert e.type == SystemExit
+
+
+
+
+
+
+
+
