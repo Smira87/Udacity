@@ -1,4 +1,5 @@
 """Module that generates a Hash Table"""
+import sys
 class HashTable():
     """Class that generates a Hash Table"""
 
@@ -8,17 +9,17 @@ class HashTable():
     def store(self, string):
         """Input a string that's stored in
         the table."""
-        hv = self.calculate_hash_value(string)
+        h_v = self.calculate_hash_value(string)
 
         if self.lookup(string) == -1:
 
-            if self.table[hv] != None:
+            if self.table[h_v] is not None:
 
-                self.table[hv].append(string)
+                self.table[h_v].append(string)
 
             else:
 
-                self.table[hv] = [string]
+                self.table[h_v] = [string]
         else:
             print("This string is already present in a table")
 
@@ -26,14 +27,15 @@ class HashTable():
         """Return the hash value if the
         string is already in the table.
         Return -1 otherwise."""
-        hv = self.calculate_hash_value(string)
+        h_v = self.calculate_hash_value(string)
 
-        if self.table[hv] != None:
-            if string in self.table[hv]:
-                return hv
+        if self.table[h_v] is not None:
+            if string in self.table[h_v]:
+                return h_v
         return -1
 
-    def calculate_hash_value(self, string):
+    @classmethod
+    def calculate_hash_value(cls, string):
         """Helper function to calulate a
         hash value from a string."""
         if string.isupper():
@@ -46,16 +48,16 @@ class HashTable():
                 print(
                     "There must be at least two letters "
                     "in an input string. Please correct your code")
-                exit()
+                sys.exit()
 
             except TypeError:
 
                 print("The input data must be a string. Please correct your code")
-                exit()
+                sys.exit()
         else:
 
             print('Input string should be uppercase')
-            exit()
+            sys.exit()
         return value
 
 

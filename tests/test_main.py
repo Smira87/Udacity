@@ -1,10 +1,8 @@
+"""Test for ALL main.py functions"""
 from src import main
 
-"""Test function to test ALL main.py functions"""
-
-
 def test_calculate_hash_value():
-
+    """Test function to test ALL main.py functions"""
     hash_table = main.HashTable()
 
     hash_table.store('LALA')
